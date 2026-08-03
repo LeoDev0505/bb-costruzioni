@@ -19,7 +19,6 @@ export function ContactPage() {
     message: '',
   })
 
-  // Funzione per codificare i dati nel formato standard che Netlify richiede via AJAX
   const encode = (data: { [key: string]: string }) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -29,7 +28,6 @@ export function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Invio effettivo a Netlify in background senza ricaricare la pagina
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -86,7 +84,6 @@ export function ContactPage() {
                     data-netlify="true"
                     className="space-y-8"
                   >
-                    {/* Input nascosto obbligatorio per Netlify */}
                     <input type="hidden" name="form-name" value="contatto-progetto" />
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -113,7 +110,6 @@ export function ContactPage() {
                           id="email"
                           name="email"
                           required
-                          value[...]{/* trimmed for brevity */}
                           value={form.email}
                           onChange={handleChange}
                           className="w-full bg-transparent border-b border-concrete-300 py-3 text-base text-graphite-900 focus:border-graphite-900 outline-none transition-colors"
