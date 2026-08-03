@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-concrete-50 text-graphite-900 font-sans;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-700 tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-graphite-900 text-concrete-50;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-concrete-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-graphite-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-graphite-800;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm font-medium tracking-widest uppercase relative overflow-hidden;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 ease-out-expo;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-3 px-8 py-4 bg-graphite-900 text-concrete-50 text-sm font-semibold tracking-widest uppercase transition-all duration-300 ease-out-expo hover:bg-graphite-700 hover:gap-5 active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50;
+    letter-spacing: 0.12em;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-3 px-8 py-4 border border-graphite-900 text-graphite-900 text-sm font-semibold tracking-widest uppercase transition-all duration-300 ease-out-expo hover:bg-graphite-900 hover:text-concrete-50 hover:gap-5 active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50;
+    letter-spacing: 0.12em;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center gap-3 px-8 py-4 border border-concrete-50 text-concrete-50 text-sm font-semibold tracking-widest uppercase transition-all duration-300 ease-out-expo hover:bg-concrete-50 hover:text-graphite-900 hover:gap-5 active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50;
+    letter-spacing: 0.12em;
+  }
+
+  .label {
+    @apply text-xs font-semibold tracking-widest uppercase text-accent;
+    letter-spacing: 0.18em;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl font-800 tracking-tight leading-none;
+  }
+
+  .overline {
+    @apply text-xs font-semibold tracking-widest uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .grid-line {
+    @apply border-concrete-200;
+  }
+
+  .image-hover {
+    @apply overflow-hidden;
+  }
+
+  .image-hover img {
+    @apply transition-transform duration-700 ease-out-expo;
+  }
+
+  .image-hover:hover img {
+    @apply scale-105;
+  }
+}
+
+@layer utilities {
+  .font-300 { font-weight: 300; }
+  .font-400 { font-weight: 400; }
+  .font-500 { font-weight: 500; }
+  .font-600 { font-weight: 600; }
+  .font-700 { font-weight: 700; }
+  .font-800 { font-weight: 800; }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .writing-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .ease-out-expo {
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
